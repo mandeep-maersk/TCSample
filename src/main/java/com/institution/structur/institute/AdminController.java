@@ -2,6 +2,7 @@ package com.institution.structur.institute;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.institution.structur.repo.InstructorRepoForQueries;
 import com.institution.structur.repo.InstructorRepository;
 
 @RestController
@@ -20,15 +22,18 @@ public class AdminController {
 	@Autowired
 	InstructorRepository instructorRepository;
 
-	@GetMapping(value = "/instructor/{instructorName}", produces = { "application/json" })
-	private List<Instructor> getSubOrdinates(@PathVariable("instructorName") String instructorName) {
+	@Autowired
+	InstructorRepoForQueries instructorRepoForQueries;
+	
+	@GetMapping(value = "/instructor/{admin}", produces = { "application/json" })
+	private List<Instructor> getSubOrdinates(@PathVariable("admin") String admin) {
 		List<Instructor> subordinates = new ArrayList<>();
-		subordinates = instructorRepository.getInstructorById(instructorName);
+		subordinates = instructorRepository.getInstructorById(admin);
 		return subordinates;
 	}
 
-	@PostMapping(value = "/instructor/{adminId}", consumes= {"application/json"})
-	private List<Instructor> getSubOrdinates(@RequestBody Instructor instructor, @PathVariable("adminId") String adminId) {
+	@PostMapping(value = "/instructor", consumes= {"application/json"})
+	private List<Instructor> getSubOrdinates(@RequestBody Instructor instructor) {
 		instructorRepository.save(instructor);
 		return null;
 

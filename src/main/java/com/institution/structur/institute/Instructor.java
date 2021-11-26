@@ -1,13 +1,12 @@
 package com.institution.structur.institute;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.data.jpa.repository.Query;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +17,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Instructor {
+@Table(name="INSTRUCTOR")
+public class Instructor implements Serializable {
 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
