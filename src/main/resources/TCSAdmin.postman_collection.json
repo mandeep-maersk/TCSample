@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "87d3bd8b-5338-46ca-bef9-b5f7c34f5c2d",
+		"name": "TCSAdmin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetInstructor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/instructor/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"instructor",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostInstructor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"instructorName\":\"Madhu\",\r\n\"admin\":\"Madhavi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/instructor/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"instructor",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
